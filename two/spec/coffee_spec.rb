@@ -7,8 +7,12 @@ class Coffee
         ingredients << ingredient
     end
 
+    def total_ingredients
+        ingredients.size * 0.25
+    end
+
     def price
-        1.00
+        1.00 + total_ingredients
     end
 end
 
