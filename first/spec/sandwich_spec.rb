@@ -1,13 +1,17 @@
 RSpec.describe 'An ideal sandwich' do
-  # Creating a before hook to initialize an object
-  before { @sandwich = Sandwich.new(taste: 'delicious', toppings: [])}
+  # Creating a helper method to be used for all the it blocks
+  def sandwich
+    @sandwich ||= Sandwich.new(taste: 'delicious', toppings: [])
+  end
+
   it 'is deilicious' do
-    taste = @sandwich.taste
+    taste = sandwich.taste
     expect(taste).to eq('delicious')
   end
 
   it 'lets me add toppings' do
-    toppings = @sandwich.toppings << 'cheese'
+    sandwich.toppings << 'cheese'
+    toppings = sandwich.toppings
 
     expect(toppings).not_to be_empty
   end
