@@ -1,8 +1,6 @@
 RSpec.describe 'An ideal sandwich' do
-  # Creating a helper method to be used for all the it blocks
-  def sandwich
-    @sandwich ||= Sandwich.new(taste: 'delicious', toppings: [])
-  end
+  # Changing the sandwich helper method to a let statement
+  let(:sandwich) {Sandwich.new(taste: 'delicious', toppings: [])}
 
   it 'is deilicious' do
     taste = sandwich.taste
