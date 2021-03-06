@@ -6,3 +6,4 @@ RSpec.describe 'An ideal sandwich' do
     expect(taste).to eq('delicious')
   end
 end
+Sandwich = Struct.new(:taste, :toppings)
