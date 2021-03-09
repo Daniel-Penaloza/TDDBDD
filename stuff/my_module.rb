@@ -1,13 +1,20 @@
-module Cream
-  def cream?
-    true
+require 'digest'
+
+module Encryption
+  def encrypt(string)
+    Digest::SHA2.hexdigest(string)
   end
 end
 
-
-class Cookie
-  include Cream
+class Person
+  include Encryption
+  attr_accessor :password
+  
+  def encrypted_password
+    encrypt(password)
+  end
 end
 
-cookie = Cookie.new
-p cookie.cream?
+person = Person.new
+person.password = "d4n"
+puts person.encrypted_password
